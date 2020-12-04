@@ -10,10 +10,88 @@
         android:id="@+id/layout_toolbar"
         layout="@layout/toolbar_products" />
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btSortby"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:background="@color/light_gray_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btFilter"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvSortby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sortby"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14sp"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                app:layout_constraintStart_toEndOf="@+id/tvSortby"
+                app:layout_constraintTop_toTopOf="@+id/tvSortby"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSortby"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/light_gray_line"
+            app:layout_constraintStart_toEndOf="@id/btSortby"
+            app:layout_constraintEnd_toStartOf="@id/btFilter"
+            app:layout_constraintTop_toTopOf="@id/btFilter"
+            app:layout_constraintBottom_toBottomOf="@id/btFilter"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btFilter"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:background="@color/light_gray_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btSortby"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/filter"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14sp"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btFilter"
+            />
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

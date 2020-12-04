@@ -24,6 +24,8 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(layoutId)
         if (setToolbar) initializeToolbar()
         initData()
+        setupViewModel()
+        setupUI()
     }
 
     private fun statusBarHide() {
